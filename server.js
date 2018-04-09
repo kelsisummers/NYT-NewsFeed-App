@@ -33,27 +33,26 @@ app.set("view engine", "handlebars");
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-// mongoose.Promise = Promise;
-// mongoose.connect("mongodb://localhost/newsScraperDB", {
-  // useMongoClient: true
-// });
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/newsScraperDB';
+mongoose.Promise = Promise;
+mongoose.connect(MONGOD_URI, {
+  useMongoClient: true
+});
 
-var databaseUri = 'mongodb://localhost/newsScraperDB';
+// if (process.env.MONGODB_URI) {
+//   mongoose.connect(process.env.MONGODB_URI)
+// } else {
+//   mongoose.connect(databaseUri)
+// }
 
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI)
-} else {
-  mongoose.connect(databaseUri)
-}
+// var database = mongoose.connection;
+// database.on('error', function(err){
+//   console.log('Monggose Error: ', err);
+// })
 
-var database = mongoose.connection;
-database.on('error', function(err){
-  console.log('Monggose Error: ', err);
-})
-
-database.once('open', function(){
-  console.log('Mongoose connection successful.')
-})
+// database.once('open', function(){
+//   console.log('Mongoose connection successful.')
+// })
 // Routes
 
   // DELETE route for deleting posts
