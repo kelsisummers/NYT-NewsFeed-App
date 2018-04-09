@@ -35,7 +35,7 @@ app.set("view engine", "handlebars");
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/newsScraperDB';
 mongoose.Promise = Promise;
-mongoose.connect(MONGOD_URI, {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
