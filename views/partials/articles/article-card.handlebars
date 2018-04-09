@@ -1,0 +1,26 @@
+{{!-- Article Cards --}}
+<div class="col s12 m6 l4" style="padding: 10px">
+  <div class="card z-depth-3">
+    <div class="image-container">
+      <div class="card-image">
+        {{!-- Article Image --}}
+        <img src="{{image}}">
+        {{!-- Article Title/Link --}}
+        <span class="card-title" style="z-index:2"><a class="article-title" href="{{link}}">{{title}}</a></span>
+        <a class="btn-floating halfway-fab waves-effect waves-light activator" style="background-color: #696969;"><i class="material-icons">more_horiz</i></a>
+      </div>
+    </div>
+    {{!-- Article Summary/Link --}}
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Summary<i class="material-icons right">close</i></span>
+      <p>{{summary}}</p>
+      <p><a href="{{link}}">Read Article</a></p>
+    </div> 
+    {{!-- Comment Section --}}
+    <div data-id="{{id}}" class="card-action">
+      <a class="modal-trigger" href="#modal{{id}}" style="color:#696969"><i class="material-icons">comment</i> Comments</a>
+    </div>
+  </div>
+</div>
+
+         

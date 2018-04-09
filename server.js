@@ -26,35 +26,94 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
+// Set Handlebars Engine
+var exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/week18Populater", {
-  useMongoClient: true
-});
+// mongoose.Promise = Promise;
+// mongoose.connect("mongodb://localhost/newsScraperDB", {
+  // useMongoClient: true
+// });
 
+var databaseUri = 'mongodb://localhost/newsScraperDB';
+
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI)
+} else {
+  mongoose.connect(databaseUri)
+}
+
+var database = mongoose.connection;
+database.on('error', function(err){
+  console.log('Monggose Error: ', err);
+})
+
+database.once('open', function(){
+  console.log('Mongoose connection successful.')
+})
 // Routes
+
+  // DELETE route for deleting posts
+  app.delete("/articles/:id", function(req, res) {
+    db.Note.remove({
+      note: {
+        id: req.body._id
+      }
+    })
+    .then(function(dbNote) {
+      res.json(dbNote);
+    });
+  });
+
+app.get('/', function(req, res){
+  db.Article.find({
+  })
+  .then(function(data){
+    var data = {
+      articles: data
+    }
+    res.render('index', data)
+  });
+})
 
 // A GET route for scraping the echojs website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  axios.get("http://www.echojs.com/").then(function(response) {
+  axios.get("https://www.nytimes.com/section/us").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
 
+    var result = [];
+
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article h2").each(function(i, element) {
+    $("article").each(function(i, element) {
       // Save an empty result object
-      var result = {};
+      var article = {};
 
       // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this)
-        .children("a")
-        .text();
-      result.link = $(this)
-        .children("a")
+      article.title = $(element)
+        .find("h2")
+        .text()
+        .trim();
+        // console.log("title", result.title)
+      article.link = $(element)
+        .find("a")
         .attr("href");
+      article.summary = $(element)
+        .find('p.summary')
+        .text();
+      article.image = $(element)
+        .find('img')
+        .attr('src');
 
+      if (article.title && article.link && article.summary && article.image) {
+        result.push(article);
+      }
+      
+    });
       // Create a new Article using the `result` object built from scraping
       db.Article
         .create(result)
@@ -66,7 +125,6 @@ app.get("/scrape", function(req, res) {
           // If an error occurred, send it to the client
           res.json(err);
         });
-    });
   });
 });
 

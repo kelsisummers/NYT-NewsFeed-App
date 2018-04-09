@@ -1,0 +1,50 @@
+<!-- Modal Structure -->
+<div id="modal{{id}}" class="modal" style="width: 40vw; padding: 20px; max-height: 100%">
+  <div class="modal-content">
+  {{!-- Article Title --}}
+  <h4>{{title}}</h4>
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        {{!-- Comment Form Tab --}}
+        <li class="tab col s6">
+          <a href="#comment-form{{id}}">Leave A Comment</a>
+        </li>
+        {{!-- Comment Feed Tab --}}
+        <li class="tab col s6">
+          <a href="#comment-feed{{id}}">Comments</a></li>
+      </ul>
+    </div>
+    {{!-- Comment Form --}}
+    <div id="comment-form{{id}}" class="col s12">
+      {{!-- Name Input --}}
+      <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Name" id="titleinput{{id}}" type="text" class="validate">
+        </div>
+        </div>
+              <div class="row">
+        <div class="input-field col s12">
+          <textarea id="bodyinput{{id}}" class="materialize-textarea"></textarea>
+          <label for="textarea1">Comment</label>
+        </div>
+      </div>
+        </form>
+        </div>
+      {{!-- <input placeholder="Name" id='titleinput{{id}}' name='title'> --}}
+      {{!-- Comment Input --}}
+      {{!-- <textarea placeholder="Comment" id='bodyinput{{id}}' name='body'></textarea> --}}
+    </div>
+    {{!-- Comment Feed --}}
+    <div id="comment-feed{{id}}" class="col s12" style="padding: 20px">
+    </div>
+  </div>
+
+    </div>
+    <div class="modal-footer" style="margin-top: -50px">
+      <a data-id="{{id}}" id="savenote" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Post</a>
+    </div>
+  </div>
+

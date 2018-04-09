@@ -1,0 +1,15 @@
+{{!-- Comment Modals --}}
+{{#each articles}}
+  {{>articles/comments}}
+{{/each}}
+
+{{!-- Header Image --}}
+<img class="responsive-img z-depth-5" src="news_header_cropped.png">
+
+{{!-- Container for Article Cards --}}
+<div class="row" style="margin-top: 50px; margin-left: 50px; margin-right: 50px">
+  {{#each articles}}
+    {{>articles/article-card}}
+  {{/each}}
+</div>
+

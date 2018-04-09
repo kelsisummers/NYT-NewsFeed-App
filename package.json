@@ -1,27 +1,22 @@
 {
-  "name": "newsfeed-app",
+  "name": "mongoose_skeleton",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kelsisummers/NewsFeed-App.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kelsisummers/NewsFeed-App/issues"
-  },
-  "homepage": "https://github.com/kelsisummers/NewsFeed-App#readme",
   "dependencies": {
+    "axios": "^0.16.2",
     "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^5.0.12",
+    "mongoose": "^4.12.0",
+    "morgan": "^1.9.0",
     "request": "^2.85.0"
   }
 }
