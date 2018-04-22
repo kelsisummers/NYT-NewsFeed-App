@@ -9,4 +9,4 @@
 
 GitHub Repo: https://github.com/kelsisummers/NewsFeed-App.git
 
-Heroku Link: https://fast-dusk-83760.herokuapp.com/
+Heroku Link: https://immense-badlands-65203.herokuapp.com/
