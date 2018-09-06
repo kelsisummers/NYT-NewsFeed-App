@@ -45,7 +45,7 @@ $(document).on("click", "#savenote", function() {
     // With that done
     .done(function(data) {
       // Log the response
-      console.log(data);
+      // console.log(data);
       // Empty the notes section
       $("#comment-feed" + thisId).empty();
     });
@@ -70,7 +70,7 @@ $(document).on("click", ".delete-note", function() {
     // With that done
     .done(function(data) {
       // Log the response
-      console.log(data);
+      // console.log(data);
       // Empty the notes section
       $("#comment-feed" + thisId).empty();
     });
