@@ -22,6 +22,10 @@ img.responsive-img {
   object-fit: cover;
 }
 
+ul.tabs {
+  background-color: transparent;
+}
+
 /* Card Image Gradient */
 .image-container {
   position: relative;
@@ -50,19 +54,19 @@ img.responsive-img {
 
 
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #fe676f;
-  -webkit-box-shadow: 0 1px 0 0 #fe676f;
-  box-shadow: 0 1px 0 0 #fe676f;
+  border-bottom: 1px solid #0066a6;
+  -webkit-box-shadow: 0 1px 0 0 #0066a6;
+  box-shadow: 0 1px 0 0 #0066a6;
 }
 
 input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
-  color: #fe676f;
+  color: #0066a6;
 }
 
 input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:not(.browser-default), input[type=text].valid:not(.browser-default):focus, input[type=password].valid:not(.browser-default), input[type=password].valid:not(.browser-default):focus, input[type=email].valid:not(.browser-default), input[type=email].valid:not(.browser-default):focus, input[type=url].valid:not(.browser-default), input[type=url].valid:not(.browser-default):focus, input[type=time].valid:not(.browser-default), input[type=time].valid:not(.browser-default):focus, input[type=date].valid:not(.browser-default), input[type=date].valid:not(.browser-default):focus, input[type=datetime].valid:not(.browser-default), input[type=datetime].valid:not(.browser-default):focus, input[type=datetime-local].valid:not(.browser-default), input[type=datetime-local].valid:not(.browser-default):focus, input[type=tel].valid:not(.browser-default), input[type=tel].valid:not(.browser-default):focus, input[type=number].valid:not(.browser-default), input[type=number].valid:not(.browser-default):focus, input[type=search].valid:not(.browser-default), input[type=search].valid:not(.browser-default):focus, textarea.materialize-textarea.valid, textarea.materialize-textarea.valid:focus, .select-wrapper.valid>input.select-dropdown {
-  border-bottom: 1px solid #fe676f;
-  -webkit-box-shadow: 0 1px 0 0 #fe676f;
-  box-shadow: 0 1px 0 0 #fe676f;
+  border-bottom: 1px solid #0066a6;
+  -webkit-box-shadow: 0 1px 0 0 #0066a6;
+  box-shadow: 0 1px 0 0 #0066a6;
 }
 
 .btn-floating i {
@@ -70,6 +74,31 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
 }
 .material-icons, a.readme {
   color: #0066a6;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  background-color: transparent;
+  color: #0066a6;
+}
+
+.tabs .indicator {
+  background-color: rgba(0,102,166, .6);
+}
+
+.tabs .tab a {
+  color: rgba(0,102,166, .6);
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: rgba(0,102,166, .1);
+}
+
+.modal-header{
+  display: flex;
+}
+
+.modal .modal-close {
+  padding-left: 20px;
 }
 
 @media only screen and (max-width: 750px) {
@@ -81,6 +110,9 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
 @media only screen and (max-width: 600px) {
   .page-title {
     flex-direction: column;
+  }
+  h5{
+    font-size: 1.75rem;
   }
 }
 
