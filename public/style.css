@@ -3,6 +3,20 @@ body {
   font-family: 'Aldrich', sans-serif;
 }
 
+.page-title {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.smaller{
+  font-size: 1.75rem;
+}
+
 /* Card Image Gradient */
 .image-container {
   position: relative;
@@ -46,8 +60,22 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
   box-shadow: 0 1px 0 0 #fe676f;
 }
 
+.btn-floating i {
+  background-color: #0066a6;
+}
+.material-icons, a.readme {
+  color: #0066a6;
+}
+
 @media only screen and (max-width: 750px) {
   .card .card-title {
     font-size: 16px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .page-title {
+    flex-direction: column;
+  }
+}
+
