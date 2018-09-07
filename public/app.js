@@ -18,7 +18,7 @@ $(document).on("click", ".card-action", function() {
     // With that done, add the note information to the page
     .done(function(data) {
       if (data.note != undefined){
-        $("#comment-feed" + thisId).append('<span>' + data.note.title + ' says "' + data.note.body + '"</span><i data-id="' + thisId + '"class="material-icons right delete-note" style="cursor: pointer">delete_forever</i>' );
+        $("#comment-feed" + thisId).append('<div class="comment-text"><span>' + data.note.title + ' says "' + data.note.body + '"</span><i data-id="' + thisId + '"class="material-icons right delete-note" style="cursor: pointer">delete_forever</i></div>' );
       } else {
         $("#comment-feed" + thisId).append('<span>Be the first to leave a comment!</span>');
       }
@@ -59,6 +59,7 @@ $(document).on("click", "#savenote", function() {
 $(document).on("click", ".delete-note", function() {
   // Grab the id associated with the article from the submit button
   var thisId = $(this).attr("data-id");
+  console.log('id?', thisId);
   // alert(thisId)
 
   // Run a POST request to change the note, using what's entered in the inputs

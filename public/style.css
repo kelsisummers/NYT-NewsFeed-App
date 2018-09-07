@@ -101,6 +101,11 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
   padding-left: 20px;
 }
 
+.comment-text {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media only screen and (max-width: 750px) {
   .card .card-title {
     font-size: 16px;
