@@ -8,13 +8,18 @@ body {
   font-size: 2.5rem;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 10px 20px;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .smaller{
   font-size: 1.75rem;
+}
+
+img.responsive-img {
+  min-height: 200px;
+  object-fit: cover;
 }
 
 /* Card Image Gradient */
